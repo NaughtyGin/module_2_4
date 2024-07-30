@@ -2,12 +2,11 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 primes = []
 not_primes = []
 
-is_prime = True
-for i in numbers:
-    if i == int(len(numbers)):  # ввёл условие, т.к. выдавало ошибку IndexError: list index out of range в строке 10
-        break
+for i in numbers[:-1]:
+    # is_prime = True - определение этой переменной (флага) есть внутри цикла перебора делителей
     for j in numbers[:i]:
-        is_prime = (int(numbers[i]) % int(numbers[j]) == 0)
+        is_prime = int(numbers[i]) % int(numbers[j]) == 0
+        # print(i, j, (numbers[i]), numbers[j], is_prime) # использовал при отладке
         if is_prime == True and j == i:
             primes.append(numbers[i])
         elif is_prime == True and j != i:
